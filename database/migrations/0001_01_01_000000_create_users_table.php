@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('city');
             $table->string('nationality');
+            $table->enum('status', ['pending', 'active', 'suspended']);
             $table->rememberToken();
             $table->timestamps();
         });
