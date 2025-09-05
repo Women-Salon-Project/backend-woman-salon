@@ -13,12 +13,26 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->datetime('email_verified_at')->nullable();
+            $table->string('phone')->unique();
+            $table->datetime('phone_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar_image')->nullable()->default('storge/images/default.png');
+            $table->string('cover_image')->nullable()->default('storge/images/default.png');
+            $table->enum('gender', ['male', 'female']);
+            $table->date('birthday');
+            $table->string('street');
+            $table->string('city');
+            $table->string('state');
+            $table->string('nationality');
+            $table->enum('status', ['pending', 'active', 'suspended']);
             $table->rememberToken();
             $table->timestamps();
+
+            $table->index('city');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
