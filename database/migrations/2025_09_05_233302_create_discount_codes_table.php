@@ -22,7 +22,7 @@ return new class extends Migration
             $table->datetime('valid_to');
             $table->integer('usage_limit');
             $table->integer('times_used')->default(0);
-            $table->boolean('is_active')->default('true');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

@@ -24,8 +24,8 @@ return new class extends Migration
             $table->dateTime('phone_verified_at')->nullable();
             $table->string('branch_cr_number');
             $table->json('busines_hours');
-            $table->boolean('is_main_branch')->default('false');
-            $table->boolean('is_active')->default('true');
+            $table->boolean('is_main_branch')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
 
             $table->index('city');

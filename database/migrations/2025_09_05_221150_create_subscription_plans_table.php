@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('name_ar');
             $table->decimal('monthly_price', 10, 2);
             $table->decimal('yearly_price', 10, 2);
-            $table->boolean('allows_sales')->default('true');
+            $table->boolean('allows_sales')->default(true);
             $table->integer('max_branches');
-            $table->boolean('is_active')->default('true');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

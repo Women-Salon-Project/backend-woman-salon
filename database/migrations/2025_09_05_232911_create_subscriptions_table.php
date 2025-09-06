@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('salon_id')->constrained()->onDelete('cascade');
-            $table->foreignId('plan_id')->constrained()->onDelete('cascade');
+            $table->foreignId('plan_id')->constrained('subscription_plans')->onDelete('cascade');
             $table->date('starts_at');
             $table->date('ends_at');
             $table->enum('status', ['active', 'canceled', 'expired']);
