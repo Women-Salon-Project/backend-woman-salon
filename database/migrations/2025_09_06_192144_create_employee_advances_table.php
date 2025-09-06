@@ -11,19 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employee_deductions', function (Blueprint $table) {
+        Schema::create('employee_advances', function (Blueprint $table) {
             $table->id();
             $table->foreignId('salon_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('employee_id')->constrained('employees')->cascadeOnDelete();
+            $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
             $table->decimal('amount', 10, 2);
-            $table->enum('type', ['advance', 'deduction']);
             $table->string('reason')->nullable();
-            $table->date('deduction_date');
-            $table->foreignId('signed_by')->nullable()->constrained('users');
-            $table->string('notes')->nullable();
+            $table->date('advance_date');
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employee_deductions');
+        Schema::dropIfExists('employee_advances');
     }
 };

@@ -23,8 +23,26 @@ class Product extends Model
         'images',
         'is_active',
     ];
-    public function category()
-    {
+
+    public function salon() {
+        return $this->belongsTo(Salon::class);
+    }
+
+    public function category() {
         return $this->belongsTo(ProductCategories::class, 'category_id');
+    }
+
+    public function inventory() {
+        return $this->hasMany(BranchInventory::class);
+    }
+
+
+
+    public function purchaseOrderItems() {
+        return $this->hasMany(PurchaseOrderItem::class);
+    }
+
+    public function transactionProducts() {
+        return $this->hasMany(TransactionProducts::class);
     }
 }

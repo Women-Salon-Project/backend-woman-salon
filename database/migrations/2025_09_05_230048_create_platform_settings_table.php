@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('platform_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('key');
+            $table->string('key')->unique();
             $table->string('value');
             $table->string('category');
             $table->string('description');

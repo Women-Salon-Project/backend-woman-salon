@@ -18,9 +18,19 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+       'first_name',
+       'last_name',
+       'email',
+       'phone',
+       'password_hash',
+        'role_id',
+        'avatar_url',
+        'cover_image_url',
+        'status',
+        'city',
+        'nationality',
+        'birth_date',
+        'gender'
     ];
 
     /**
@@ -44,5 +54,21 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+     public function role() {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function ownerProfile() {
+        return $this->hasOne(Owner::class);
+    }
+
+    public function employeeProfile() {
+        return $this->hasOne(Employee::class);
+    }
+
+    public function customerProfile() {
+        return $this->hasOne(Customer::class);
     }
 }

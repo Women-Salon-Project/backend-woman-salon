@@ -20,4 +20,7 @@ class BranchInventory extends Model
     {
         return $this->belongsTo(Product::class);
     }
+     public function branch() {
+        return $this->belongsTo(SalonBranch::class);
+    }
 }

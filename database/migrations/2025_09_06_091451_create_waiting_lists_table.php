@@ -21,9 +21,8 @@ return new class extends Migration
             $table->json('preferred_services')->nullable();
             $table->date('preferred_date')->nullable();
             $table->time('preferred_time')->nullable();
-
+            $table->enum('priority',['low','medium','high'])->default('medium');
             $table->enum('status', ['waiting', 'notified', 'booked', 'expired'])->default('waiting');
-
             $table->text('notes')->nullable();
             $table->dateTime('expires_at')->nullable();
 

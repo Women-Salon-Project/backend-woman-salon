@@ -24,4 +24,7 @@ class Report extends Model
     {
         return $this->belongsTo(User::class, 'generated_by');
     }
+    public function salon() {
+        return $this->belongsTo(Salon::class);
+    }
 }

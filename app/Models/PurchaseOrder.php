@@ -32,4 +32,12 @@ class PurchaseOrder extends Model
     {
         return $this->hasMany(PurchaseOrderItem::class);
     }
+
+     public function salon() {
+        return $this->belongsTo(Salon::class);
+    }
+
+    public function branch() {
+        return $this->belongsTo(SalonBranch::class);
+    }
 }

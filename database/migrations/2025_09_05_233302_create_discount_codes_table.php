@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('discount_codes', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
+               $table->foreignId('salon_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->enum('type', ['fixed', 'percentage']);
             $table->decimal('value', 10, 2);

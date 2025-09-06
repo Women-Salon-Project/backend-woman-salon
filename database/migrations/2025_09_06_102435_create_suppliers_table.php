@@ -14,15 +14,13 @@ return new class extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('salon_id')->constrained()->cascadeOnDelete();
-            $table->string('name');
-            $table->string('contact_person');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('address');
-            $table->string('tax_number');
-            $table->decimal('credit_limit', 12, 2)->default(0);
-            $table->json('payment_terms')->nullable();
-            $table->boolean('is_active')->default(false);
+            $table->string('plan_name');
+            $table->decimal('price', 10, 2);
+            $table->string('currency', 10)->default('USD');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->enum('status', ['active','expired','cancelled'])->default('active');
+            $table->json('features')->nullable();
             $table->timestamps();
         });
     }

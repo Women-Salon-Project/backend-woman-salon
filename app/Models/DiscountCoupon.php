@@ -29,4 +29,7 @@ class DiscountCoupon extends Model
          return $this->belongsTo(Salon::class);
      }
 
+      public function subscriptionInvoices() {
+        return $this->hasMany(SubscriptionInvoice::class);
+    }
 }

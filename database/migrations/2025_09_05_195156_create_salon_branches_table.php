@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('street');
             $table->string('city');
             $table->string('state');
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->dateTime('phone_verified_at')->nullable();
             $table->string('branch_cr_number');
             $table->json('busines_hours');

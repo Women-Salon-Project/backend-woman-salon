@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('invoices', function (Blueprint $table) {
+    Schema::create('invoices', function (Blueprint $table) {
     $table->id();
     $table->foreignId('transaction_id')->constrained('transactions')->cascadeOnDelete();
     $table->foreignId('salon_id')->constrained('salons')->cascadeOnDelete();
@@ -26,7 +26,7 @@ return new class extends Migration
     $table->decimal('tax_amount', 12, 2)->default(0);
     $table->decimal('total_amount', 12, 2)->default(0);
 
-    // $table->foreignId('payment_id')->nullable()->constrained('payments')->nullOnDelete();
+    $table->foreignId('payment_id')->nullable()->constrained('payments')->nullOnDelete();
     $table->json('zatca_data')->nullable();
     $table->string('pdf_url')->nullable();
 

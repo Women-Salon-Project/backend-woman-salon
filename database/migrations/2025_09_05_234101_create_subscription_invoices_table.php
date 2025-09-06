@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('subscription_invoices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('discount_id')->constrained('discount_codes');
-            $table->foreignId('subscription_id')->constrained('subscriptions');
-            $table->foreignId('salon_id')->constrained('salons');
-            $table->decimal('subtotal', 10, 2);
-            $table->decimal('tax_amount', 10, 2);
+            $table->foreignId('subscription_id')->constrained()->cascadeOnDelete();
+            $table->string('invoice_number')->unique();
             $table->decimal('total_amount', 10, 2);
             $table->dateTime('invoice_date');
-            $table->string('payment_method');
-            $table->json('payment_details');
+            $table->dateTime('due_date')->nullable();
+            $table->string('payment_method')->nullable();
+            $table->json('payment_details')->nullable();
+            $table->timestamp('paid_at')->nullable();
             $table->timestamps();
         });
     }

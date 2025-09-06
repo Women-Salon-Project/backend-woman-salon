@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('owner_id')->constrained('users');
+            $table->foreignId('owner_id')->constrained('owners')->cascadeOnDelete();
             $table->string('name');
             $table->string('name_ar');
             $table->string('email')->unique();
@@ -28,7 +28,8 @@ return new class extends Migration
             $table->string('tax_certificate_url');
             $table->string('vat_number_url');
             $table->enum('status', ['pending', 'approved', 'subscriped', 'suspended'])->default('pending');
-
+            $table->timestamp('trial_ends_at')->nullable();
+            $table->timestamps();
         });
     }
 

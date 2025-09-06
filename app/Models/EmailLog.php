@@ -20,4 +20,8 @@ class EmailLog extends Model
         'failure_reason',
         'created_at',
     ];
+
+      public function salon() {
+        return $this->belongsTo(Salon::class);
+    }
 }

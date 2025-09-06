@@ -18,4 +18,12 @@ class Supplier extends Model
         'payment_terms',
         'is_active',
     ];
+
+     public function salon() {
+        return $this->belongsTo(Salon::class);
+    }
+
+    public function purchaseOrders() {
+        return $this->hasMany(PurchaseOrder::class);
+    }
 }

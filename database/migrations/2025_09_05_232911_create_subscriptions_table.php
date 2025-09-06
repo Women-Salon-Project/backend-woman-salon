@@ -18,6 +18,8 @@ return new class extends Migration
             $table->date('starts_at');
             $table->date('ends_at');
             $table->enum('status', ['active', 'canceled', 'expired']);
+             $table->string('billing_cycle');
+            $table->json('payment_details')->nullable();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id')->constrained('customers')->cascadeOnDelete();
             $table->foreignId('salon_id')->constrained('salons')->cascadeOnDelete();
-
+            $table->morphs('favouritable');
             $table->timestamps();
 
             $table->unique(['customer_id', 'salon_id']);

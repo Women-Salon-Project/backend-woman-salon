@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('appointment_id')->constrained('appointments')->cascadeOnDelete();
             $table->foreignId('service_id')->constrained('services')->cascadeOnDelete();
             $table->foreignId('employee_id')->nullable()->constrained('employees')->nullOnDelete();
-
+              $table->foreignId('transaction_id')->nullable()->constrained()->nullOnDelete();
             $table->decimal('price', 12, 2);
             $table->decimal('commission_amount', 12, 2)->default(0);
             $table->integer('duration_minutes');

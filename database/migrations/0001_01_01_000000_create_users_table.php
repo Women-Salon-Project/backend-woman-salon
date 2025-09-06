@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('avatar_image')->nullable()->default('storge/images/default.png');
             $table->string('cover_image')->nullable()->default('storge/images/default.png');
-            $table->enum('gender', ['male', 'female']);
+            $table->enum('gender', ['male', 'female','other']);
             $table->date('birthday');
             $table->string('street');
             $table->string('city');
