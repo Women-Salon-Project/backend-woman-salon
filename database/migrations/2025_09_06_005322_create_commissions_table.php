@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('employee_id')->constrained('employees')->cascadeOnDelete();
             $table->enum('commission_type', ['service', 'product']);
             $table->unsignedBigInteger('reference_id');
-            $table->decimal('commission_rate', 5, 2)->default(0); // نسبة %
-            $table->decimal('commission_amount', 10, 2)->default(0); // المبلغ
+            $table->decimal('commission_rate', 5, 2)->default(0);
+            $table->decimal('commission_amount', 10, 2)->default(0);
             $table->string('notes')->nullable();
             $table->timestamps();
         });
