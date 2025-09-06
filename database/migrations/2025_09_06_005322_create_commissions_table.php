@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commissions', function (Blueprint $table) {
-             $table->id();
-            $table->foreignId('salon_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('transaction_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('service_id')->nullable()->constrained()->nullOnDelete();
+            $table->id();
+            $table->foreignId('salon_id')->constrained('salons')->cascadeOnDelete();
+            $table->foreignId('employee_id')->constrained('employees')->cascadeOnDelete();
+            $table->foreignId('transaction_id')->constrained('transactions')->cascadeOnDelete();
+            $table->foreignId('service_id')->nullable()->constrained('services')->nullOnDelete();
             $table->decimal('amount', 10, 2);
             $table->decimal('percentage', 5, 2)->nullable();
             $table->timestamp('calculated_at')->nullable();

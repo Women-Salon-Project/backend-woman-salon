@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('owner_id')->constrained('owners')->cascadeOnDelete();
             $table->string('name');
             $table->string('name_ar');
