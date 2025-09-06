@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('salon_id')->constrained('salons');
+            $table->foreignId('branch_id')->constrained('salon_branches');
+            $table->string('employee_code')->unique();
+            $table->enum('position', ['manager', 'service_employee', 'cashier']);
+            $table->decimal('base_salary');
+            $table->enum('employment_type', ['part_time', 'full_time'])->default('full_time');
+            $table->date('hired_at');
+            $table->date('terminated_at')->nullable();
+            $table->string('termination_reason')->nullable();
+            $table->json('documents');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

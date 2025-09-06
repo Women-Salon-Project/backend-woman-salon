@@ -17,7 +17,18 @@ return new class extends Migration
             $table->foreignId('manager_id')->constrained('users')->nullable();
             $table->string('name');
             $table->string('name_ar');
+            $table->string('street');
+            $table->string('city');
+            $table->string('state');
+            $table->string('phone');
+            $table->dateTime('phone_verified_at')->nullable();
+            $table->string('branch_cr_number');
+            $table->json('busines_hours');
+            $table->boolean('is_main_branch')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+
+
 
         });
     }
