@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('generated_by')->constrained('users')->cascadeOnDelete();
             $table->timestamp('generated_at')->nullable();
             $table->timestamp('expires_at')->nullable();
-            $table->timestamp('created_at');
+            $table->timestamp('created_at')->useCurrent(); 
         });
     }
 
